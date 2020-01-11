@@ -21,7 +21,6 @@ const app = express()
 
 const db = require('./lib/db')
 db.connectMySql();
-var connStatus = db.getConnStatus();
 
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main'})
 app.engine('handlebars', handlebars.engine)
@@ -31,10 +30,13 @@ app.use(require('body-parser').urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
 	console.log(req.query.name);
-	var recs = db.getFilms((recs) => {
-		res.render('home', { films: recs, name: req.query.name });
-		// res.render('home', { films: recs, name: req.query.name });
-	})
+	if(db.connectOk()) {
+		var recs = db.getFilms((recs) => {
+			res.render('home', { films: recs, name: req.query.name });
+			// res.render('home', { films: recs, name: req.query.name });
+		})		
+	} else
+		res.send('<h1>Ошибка соединения с БД</h1>')
 })
 
 /*app.post('/', (req, res) => {

@@ -2,12 +2,15 @@
 	apt-get update
 	apt install snapd
 	snap install heroku --classic
-	
+
 	heroku login
 	heroku create
 
 	https://morning-harbor-96133.herokuapp.com/
 	https://git.heroku.com/morning-harbor-96133.git
+
+	git push heroku master
+
 
 */
 const express = require('express')

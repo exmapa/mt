@@ -63,6 +63,11 @@ app.use((req, res) => {
 })
 */
 
-app.listen(3000, () =>
-	console.log('Server started, port 3000'))
+app.use((req, res) => {
+	res.status(404)
+	res.send('Ошибка 404: наполнения еще нет')
+})
+
+app.listen(5000, () =>
+	console.log('Server started, port 5000'))
 

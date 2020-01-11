@@ -17,10 +17,11 @@
 const express = require('express')
 const app = express()
 
-/*const db = require('./lib/db')
-db.connectMySql()
+const db = require('./lib/db')
+db.connectMySql();
+var connStatus = db.getConnStatus();
 
-const handlebars = require('express-handlebars').create({ defaultLayout: 'main'})
+/*const handlebars = require('express-handlebars').create({ defaultLayout: 'main'})
 app.engine('handlebars', handlebars.engine)
 app.set('view engine', 'handlebars')
 
@@ -79,7 +80,7 @@ app.use((req, res) => {
 
 app.use((req, res) => {
 	res.status(404)
-	res.send('Ошибка 404: наполнения еще нет')
+	res.send('Ошибка 404: наполнения еще нет<br>' + connStatus)
 })
 
 const port = process.env.PORT || 5000;

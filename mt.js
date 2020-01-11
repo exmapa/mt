@@ -31,12 +31,15 @@ app.use(require('body-parser').urlencoded({ extended: true }))
 app.get('/', (req, res) => {
 	console.log(req.query.name);
 	if(db.connectOk()) {
+		console.log('connect ok');
 		var recs = db.getFilms((recs) => {
 			res.render('home', { films: recs, name: req.query.name });
 			// res.render('home', { films: recs, name: req.query.name });
 		})		
-	} else
+	} else {
+		console.log('connect error');
 		res.send('<h1>Ошибка соединения с БД</h1>')
+	}
 })
 
 /*app.post('/', (req, res) => {

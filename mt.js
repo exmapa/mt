@@ -11,12 +11,13 @@
 
 	git push heroku master
 
+	heroku logs --tail
 
 */
 const express = require('express')
 const app = express()
 
-const db = require('./lib/db')
+/*const db = require('./lib/db')
 db.connectMySql()
 
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main'})
@@ -74,7 +75,7 @@ app.get('/headers', (req, res) => {
 app.use((req, res) => {
 	res.status(404)
 	res.render('404')
-})
+})*/
 
 app.use((req, res) => {
 	res.status(404)

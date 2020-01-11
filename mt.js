@@ -9,6 +9,8 @@
 	https://morning-harbor-96133.herokuapp.com/
 	https://git.heroku.com/morning-harbor-96133.git
 
+	Procfile
+
 	git push heroku master
 
 	heroku logs --tail
@@ -21,14 +23,9 @@ const db = require('./lib/db')
 db.connectMySql();
 var connStatus = db.getConnStatus();
 
-/*const handlebars = require('express-handlebars').create({ defaultLayout: 'main'})
+const handlebars = require('express-handlebars').create({ defaultLayout: 'main'})
 app.engine('handlebars', handlebars.engine)
 app.set('view engine', 'handlebars')
-
-app.use((req, res, next) => {
-	res.locals.showTests = app.get('env') !== 'production' && req.query.test === '1';
-	next();
-});
 
 app.use(require('body-parser').urlencoded({ extended: true }))
 
@@ -40,7 +37,7 @@ app.get('/', (req, res) => {
 	})
 })
 
-app.post('/', (req, res) => {
+/*app.post('/', (req, res) => {
 	console.log('post-object:' + req);
 	for(key in req)
 		console.log('    ' + key);
@@ -54,11 +51,11 @@ app.post('/', (req, res) => {
 app.get('/processform', (req, res) => {
 	console.log(req.query.naim);
 	res.render('processform', {});
-})
+})*/
 
 app.use(express.static(__dirname + '/public'))
 
-app.get('/about', (req, res) => {
+/*app.get('/about', (req, res) => {
 	res.render('about')
 })
 

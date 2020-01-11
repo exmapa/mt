@@ -1,0 +1,29 @@
+body {
+	background: #303030;
+	color: yellow;
+}
+
+/* Чтобы подписи к фильму не наползали на картинку: 3 правила */
+.thumbnail {
+    background: #373737;
+}
+
+.thumbnail .caption {
+    background: #272727;
+    color: white;
+    margin: 0;
+}
+
+.thumbnail.img-hover img {
+    margin: 5%;
+    width: 90%;
+}
+
+div.thumbnail.img-hover {
+    text-align: center; /* Круглая иконка воспроизведения по центру рисунка */
+    color: blue;
+    box-sizing: inherit;
+    overflow: hidden;
+    background: #272727;
+}
+

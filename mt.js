@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 
-/*
 const db = require('./lib/db')
 db.connectMySql()
 
@@ -61,7 +60,6 @@ app.use((req, res) => {
 	res.status(404)
 	res.render('404')
 })
-*/
 
 app.use((req, res) => {
 	res.status(404)

@@ -1,0 +1,16 @@
+{{! Список фильмов }}
+
+<div class="row">
+    {{#each films}}
+        <div class="col-xs-3">
+    		<div class="thumbnail img-hover item-preview">
+    			<img src="img/nofilm.jpg" class="img-responsive">
+    			<form action="/processform" method="get">
+    				<label for="">{{.}}</label>
+    				<input type="hidden" name="naim" value="{{.}}">
+    				<button type="submit" class="btn btn-primary">Отправить</button>
+    			</form>
+            </div>
+    	</div>
+    {{/each}}
+</div>

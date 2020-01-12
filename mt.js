@@ -17,12 +17,22 @@
 
 	heroku addons - просмотр дополнений, напр. Postgres
 
+	DATABASE_URL: postgres://lrxbgbxqyxxjoa:1c0c5a35d7d5e724ce6ef6716e8d91c03c122143528487c695a69206a0b3070b@ec2-174-129-29-52.compute-1.amazonaws.com:5432/daluu8l8eijmui
+
+	Postgresql:
+	  npm install pg --save
+
 */
 const express = require('express')
 const app = express()
 
-const db = require('./lib/db')
-db.connectMySql();
+/*const db = require('./lib/db')
+db.connectMySql();*/
+
+const Connection = require('./lib/post');
+var conn = new Connection();
+console.log('conn:' + conn.test);
+conn.connect();
 
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main'})
 app.engine('handlebars', handlebars.engine)

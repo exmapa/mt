@@ -15,6 +15,8 @@
 
 	heroku logs --tail
 
+	heroku addons - просмотр дополнений, напр. Postgres
+
 */
 const express = require('express')
 const app = express()
